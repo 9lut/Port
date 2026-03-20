@@ -1439,7 +1439,7 @@ export default function AboutAdmin() {
                       whileTap={{ scale: 0.98 }}
                       type="button"
                       onClick={handleCloseSkillModal}
-                      className="w-full sm:w-auto px-6 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-all duration-200 font-medium"
+                      className="w-full sm:w-auto px-6 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-all duration-200"
                     >
                       Cancel
                     </motion.button>
@@ -1753,15 +1753,11 @@ export default function AboutAdmin() {
                   <input
                     type="checkbox"
                     id="education-current"
-                    checked={educationFormData.is_current}
-                    onChange={(e) => setEducationFormData({
-                      ...educationFormData, 
-                      is_current: e.target.checked,
-                      end_date: e.target.checked ? '' : educationFormData.end_date
-                    })}
-                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    checked={educationFormData.is_current || false}
+                    onChange={(e) => setEducationFormData({ ...educationFormData, is_current: e.target.checked })}
+                    className="h-4 w-4 bg-gray-900 border-gray-700 rounded text-cyan-500 focus:ring-cyan-500"
                   />
-                  <label htmlFor="education-current" className="ml-2 text-sm text-gray-700">
+                  <label htmlFor="education-current" className="ml-2 block text-sm text-gray-300">
                     Currently studying here
                   </label>
                 </div>

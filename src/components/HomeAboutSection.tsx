@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { BriefcaseIcon, AcademicCapIcon, CodeBracketIcon } from '@heroicons/react/24/solid';
+import { BriefcaseIcon, AcademicCapIcon, CodeBracketIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
 import { Skeleton } from "@/components/ui/skeleton";
+
 
 
 interface Skill {
@@ -150,9 +151,10 @@ export default function HomeAboutSection() {
                                           <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-2xl transform -rotate-2 opacity-40"></div>
 
                                           {/* Main image container */}
-                                          <div className="hidden sm:block relative bg-white rounded-2xl p-4 shadow-2xl">
+                                          <div className="hidden sm:block relative bg-white rounded-2xl p-5 shadow-2xl hover:shadow-3xl transition-all duration-300">
+
+                                                {/* Image */}
                                                 <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100">
-                                                      {/* Profile image */}
                                                       <div className="w-full h-full relative">
                                                             <Image
                                                                   src="https://ssfpvdjhgwxncucrrffq.supabase.co/storage/v1/object/public/project-images/uploads/Lutfee2.jpg"
@@ -164,11 +166,22 @@ export default function HomeAboutSection() {
                                                       </div>
                                                 </div>
 
-                                                {/* Contact info or social links could go here */}
-                                                <div className="mt-4 text-center">
-                                                      <div className="inline-flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-full text-xs font-medium">
-                                                            <span>Available for work</span>
+                                                {/* Status */}
+                                                <div className="mt-3 flex justify-center">
+                                                      <div className="px-3 py-1.5 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-full text-xs font-medium shadow">
+                                                            Available for work
                                                       </div>
+                                                </div>
+
+                                                {/* Email */}
+                                                <div className="hidden sm:flex mt-3 justify-center">
+                                                      <a
+                                                            href="mailto:dl.lutfee@gmail.com"
+                                                            className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-xs transition"
+                                                      >
+                                                            <EnvelopeIcon className="w-4 h-4" />
+                                                            dl.lutfee@gmail.com
+                                                      </a>
                                                 </div>
                                           </div>
                                     </div>
@@ -185,13 +198,31 @@ export default function HomeAboutSection() {
                                           className="text-center lg:text-left"
                                     >
                                           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                                                About Me
+                                                About <span className="text-sky-500">Me</span>
                                           </h2>
-                                          <p className="text-xs text-gray-600 mb-8 leading-relaxed">
-                                                Passionate developer with expertise in modern technologies and a love for creating innovative solutions.
-                                                I transform ideas into digital experiences that make a difference.
+
+                                          <p className="text-sm md:text-base text-gray-600 mb-8 leading-relaxed">
+                                                I’m a <span className="font-semibold text-gray-900">passionate developer</span> who enjoys turning
+                                                <span className="text-sky-600 font-medium"> ideas </span>
+                                                into
+                                                <span className="text-sky-600 font-medium"> meaningful digital experiences</span>. <br />
+
+                                                With a strong focus on
+                                                <span className="font-semibold text-gray-900"> modern technologies</span>, I build solutions that are not just functional —
+                                                but <span className="italic text-gray-800">impactful</span>.
                                           </p>
                                     </motion.div>
+
+                                    {/* Email */}
+                                    <div className="flex sm:hidden mt-3 justify-center">
+                                          <a
+                                                href="mailto:dl.lutfee@gmail.com"
+                                                className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-xs transition"
+                                          >
+                                                <EnvelopeIcon className="w-4 h-4" />
+                                                dl.lutfee@gmail.com
+                                          </a>
+                                    </div>
 
                                     {/* Tab Navigation */}
                                     <motion.div
@@ -207,52 +238,61 @@ export default function HomeAboutSection() {
                                                       <CodeBracketIcon className="ml-5 w-5 h-5 text-white" />
                                                       <h3 className="text-xl font-bold text-white">Skills</h3>
                                                 </div>
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-4">
                                                       {skills.map((skill) => (
                                                             <motion.div
                                                                   key={skill.id}
-                                                                  initial={{ opacity: 0, y: 20 }}
+                                                                  initial={{ opacity: 0, y: 40 }}
                                                                   whileInView={{ opacity: 1, y: 0 }}
-                                                                  viewport={{ once: true }}
-                                                                  transition={{ duration: 0.5 }}
-                                                                  className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-sky-100 hover:border-sky-300 transition-all duration-200 hover:shadow-lg"
+                                                                  viewport={{ once: true, margin: "-50px" }}
+                                                                  transition={{
+                                                                        duration: 0.6,
+                                                                        ease: [0.22, 1, 0.36, 1],
+                                                                  }}
+                                                                  className="bg-white/90 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-sky-100 hover:border-sky-300 transition-all duration-200 hover:shadow-lg"
                                                             >
-                                                                  <div className="flex items-center space-x-3">
+                                                                  <div className="flex items-center space-x-2 md:space-x-3">
+
+                                                                        {/* ICON */}
                                                                         {skill.icon_url ? (
-                                                                              <div className="w-10 h-10 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
-                                                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                                              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
                                                                                     <img
                                                                                           src={skill.icon_url}
                                                                                           alt={skill.name}
-                                                                                          className="w-10 h-10 object-contain"
+                                                                                          className="w-8 h-8 md:w-10 md:h-10 object-contain"
                                                                                           onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                                                                                                 const target = e.target as HTMLImageElement;
                                                                                                 target.style.display = 'none';
                                                                                                 const parent = target.parentElement;
                                                                                                 if (parent) {
-                                                                                                      parent.innerHTML = `<div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center text-white text-sm font-bold">${skill.name.charAt(0).toUpperCase()}</div>`;
+                                                                                                      parent.innerHTML = `<div class="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center text-white text-xs md:text-sm font-bold">${skill.name.charAt(0).toUpperCase()}</div>`;
                                                                                                 }
                                                                                           }}
                                                                                     />
                                                                               </div>
                                                                         ) : (
-                                                                              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center flex-shrink-0">
-                                                                                    <span className="text-white text-sm font-bold">
+                                                                              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center flex-shrink-0">
+                                                                                    <span className="text-white text-xs md:text-sm font-bold">
                                                                                           {skill.name.charAt(0).toUpperCase()}
                                                                                     </span>
                                                                               </div>
                                                                         )}
+
+                                                                        {/* TEXT */}
                                                                         <div className="flex-1 min-w-0">
-                                                                              <h4 className="font-bold text-gray-900 text-sm truncate">{skill.name}</h4>
-                                                                              <p className="text-xs text-sky-600 font-medium bg-sky-50 px-2 py-1 rounded-full inline-block">
+                                                                              <h4 className="font-bold text-gray-900 text-xs md:text-sm truncate">
+                                                                                    {skill.name}
+                                                                              </h4>
+                                                                              <p className="text-[10px] md:text-xs text-sky-600 font-medium bg-sky-50 px-1.5 md:px-2 py-0.5 md:py-1 rounded-full inline-block">
                                                                                     {skill.level}
                                                                               </p>
                                                                         </div>
                                                                   </div>
                                                             </motion.div>
                                                       ))}
+
                                                       {skills.length === 0 && !isLoading && (
-                                                            <div className="text-center py-8 text-gray-500">
+                                                            <div className="text-center py-8 text-gray-500 col-span-2">
                                                                   <CodeBracketIcon className="w-12 h-12 mx-auto mb-4 opacity-50" />
                                                                   <p>No skills records found</p>
                                                             </div>

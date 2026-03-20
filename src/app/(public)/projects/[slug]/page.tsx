@@ -130,7 +130,6 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 </span>
               </div>
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">{project.title}</h1>
-              <p className="text-base md:text-lg text-sky-50 leading-relaxed max-w-2xl font-light opacity-90">{project.description}</p>
             </div>
 
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3">

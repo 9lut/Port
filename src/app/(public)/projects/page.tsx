@@ -383,52 +383,50 @@ export default function ProjectsPage() {
                                                 initial={{ opacity: 0, y: 20 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: 0.3 }}
-                                                className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-16"
+                                                className="flex items-center justify-center mt-10"
                                           >
-                                                {/* Previous Button */}
-                                                <motion.button
-                                                      onClick={() => goToPage(currentPage - 1)}
-                                                      disabled={currentPage === 1}
-                                                      whileHover={{ scale: currentPage === 1 ? 1 : 1.05 }}
-                                                      whileTap={{ scale: currentPage === 1 ? 1 : 0.95 }}
-                                                      className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-200 rounded-full hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
-                                                >
-                                                      <ChevronLeftIcon className="w-4 h-4 mr-2" />
-                                                      Previous
-                                                </motion.button>
+                                                <div className="flex items-center gap-2 max-w-full overflow-x-auto px-2">
 
-                                                {/* Page Numbers */}
-                                                <div className="flex space-x-2">
+                                                      {/* Previous */}
+                                                      <motion.button
+                                                            onClick={() => goToPage(currentPage - 1)}
+                                                            disabled={currentPage === 1}
+                                                            whileHover={{ scale: currentPage === 1 ? 1 : 1.05 }}
+                                                            whileTap={{ scale: currentPage === 1 ? 1 : 0.95 }}
+                                                            className="cursor-pointer flex-shrink-0 inline-flex items-center px-3 py-2 text-xs sm:text-sm text-gray-600 bg-white border border-gray-200 rounded-full disabled:opacity-50"
+                                                      >
+                                                            <ChevronLeftIcon className="w-4 h-4" />
+                                                      </motion.button>
+
+                                                      {/* Page Numbers */}
                                                       {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                                                             <motion.button
                                                                   key={page}
                                                                   onClick={() => goToPage(page)}
-                                                                  whileHover={{ scale: 1.1 }}
                                                                   whileTap={{ scale: 0.9 }}
                                                                   className={`
-                        w-10 h-10 text-sm font-medium rounded-full transition-all
-                        ${currentPage === page
-                                                                              ? 'bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-lg'
-                                                                              : 'text-sky-600 bg-white border border-sky-200 hover:bg-sky-50'
-                                                                        }
-                      `}
+                                                                        cursor-pointer flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 text-xs sm:text-sm rounded-full
+                                                                        ${currentPage === page
+                                                                              ? 'bg-sky-500 text-white'
+                                                                              : 'bg-white text-sky-600 border border-sky-200'}
+                                                                        `}
                                                             >
                                                                   {page}
                                                             </motion.button>
                                                       ))}
-                                                </div>
 
-                                                {/* Next Button */}
-                                                <motion.button
-                                                      onClick={() => goToPage(currentPage + 1)}
-                                                      disabled={currentPage === totalPages}
-                                                      whileHover={{ scale: currentPage === totalPages ? 1 : 1.05 }}
-                                                      whileTap={{ scale: currentPage === totalPages ? 1 : 0.95 }}
-                                                      className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-200 rounded-full hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
-                                                >
-                                                      Next
-                                                      <ChevronRightIcon className="w-4 h-4 ml-2" />
-                                                </motion.button>
+                                                      {/* Next */}
+                                                      <motion.button
+                                                            onClick={() => goToPage(currentPage + 1)}
+                                                            disabled={currentPage === totalPages}
+                                                            whileHover={{ scale: currentPage === totalPages ? 1 : 1.05 }}
+                                                            whileTap={{ scale: currentPage === totalPages ? 1 : 0.95 }}
+                                                            className="cursor-pointer flex-shrink-0 inline-flex items-center px-3 py-2 text-xs sm:text-sm text-gray-600 bg-white border border-gray-200 rounded-full disabled:opacity-50"
+                                                      >
+                                                            <ChevronRightIcon className="w-4 h-4" />
+                                                      </motion.button>
+
+                                                </div>
                                           </motion.div>
                                     )}
                               </>
