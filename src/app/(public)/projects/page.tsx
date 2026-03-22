@@ -337,7 +337,7 @@ export default function ProjectsPage() {
                                                                   {/* Technologies Used */}
                                                                   <div className="mb-4">
                                                                         <div className="flex items-center gap-2 flex-wrap">
-                                                                              {project.technologies_used?.slice(0, 3).map((tech, index) => {
+                                                                              {project.technologies_used?.slice(0, 6).map((tech, index) => {
                                                                                     const matched = findMatchingIcon(tech);
                                                                                     return (
                                                                                           <span key={index} className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-sky-50 to-blue-50 text-sky-700 text-xs font-medium rounded-full border border-sky-200">
@@ -353,9 +353,9 @@ export default function ProjectsPage() {
                                                                                           </span>
                                                                                     );
                                                                               })}
-                                                                              {(project.technologies_used?.length || 0) > 3 && (
+                                                                              {(project.technologies_used?.length || 0) > 6 && (
                                                                                     <span className="text-gray-500 text-xs">
-                                                                                          +{(project.technologies_used?.length || 0) - 3} more
+                                                                                          +{(project.technologies_used?.length || 0) - 6} more
                                                                                     </span>
                                                                               )}
                                                                         </div>
